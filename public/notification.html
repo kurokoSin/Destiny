@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>通知</title>
+    <style>
+        body {
+            font-family: serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        #notification {
+            font-size: 24px;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 2s;
+        }
+        .button {
+            padding: 10px 20px;
+            margin: auto; 
+            font-size: 18px;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div style="display:flex; flex-direction: column;">
+        <div id="notification">今月の22日、○○駅でこまっている人を助けてください</div>
+        <a href="menu.html" class="button">戻る</a>
+    </div>
+    <script>
+        window.onload = function() {
+            setTimeout(function() {
+                document.getElementById('notification').style.opacity = '1';
+            }, 100);
+        }
+    </script>
+</body>
+</html>
+
