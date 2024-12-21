@@ -1,0 +1,418 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: workflow
+  name: 運命界隈
+  use_icon_as_answer_icon: false
+kind: app
+version: 0.1.4
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions: []
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - remote_url
+      - local_file
+      enabled: true
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        image_file_size_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 1
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        sourceType: start
+        targetType: llm
+      id: 1734706197729--1734706364676-target
+      source: '1734706197729'
+      sourceHandle: source
+      target: '1734706364676'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: end
+      id: 1734706364676-fail-branch-1734706467082-target
+      source: '1734706364676'
+      sourceHandle: fail-branch
+      target: '1734706467082'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: llm
+      id: 1734706364676-source-1734707916394-target
+      source: '1734706364676'
+      sourceHandle: source
+      target: '1734707916394'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: llm
+      id: 1734707916394-source-1734708334273-target
+      source: '1734707916394'
+      sourceHandle: source
+      target: '1734708334273'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: llm
+      id: 1734707916394-source-1734708467925-target
+      source: '1734707916394'
+      sourceHandle: source
+      target: '1734708467925'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: end
+      id: 1734708467925--1734708614336-target
+      source: '1734708467925'
+      sourceHandle: source
+      target: '1734708614336'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: end
+      id: 1734708334273--1734708633520-target
+      source: '1734708334273'
+      sourceHandle: source
+      target: '1734708633520'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: 開始
+        type: start
+        variables:
+        - allowed_file_extensions: []
+          allowed_file_types:
+          - image
+          - document
+          allowed_file_upload_methods:
+          - local_file
+          - remote_url
+          label: images
+          max_length: 2
+          options: []
+          required: true
+          type: file-list
+          variable: images
+      height: 89
+      id: '1734706197729'
+      position:
+        x: -119.44638928282322
+        y: 230.0963923541841
+      positionAbsolute:
+        x: -119.44638928282322
+        y: 230.0963923541841
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - sys
+          - files
+        desc: ''
+        error_strategy: fail-branch
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gemini-1.5-pro
+          provider: google
+        prompt_template:
+        - id: 15655440-e73e-4b19-9a1d-02249640f946
+          role: system
+          text: "{{#context#}}\n<instruction>\n  <task_description>\n    アップロードした複数の画像から画像の持ち主の性格を引き出し、重要情報をまとめる\n\
+            \  </task_description>\n\n  <instructions>\n    1. まず、アップロードされた画像を1つずつ確認します。\n\
+            \    2. 各画像から持ち主の表情、服装、周囲の環境などを注意深く観察し、性格を推測します。\n    3. 画像ごとに性格に関連する特徴や情報を抽出し、まとめます。\n\
+            \    4. 重要な情報を整理し、XMLタグを使用せずに出力します。\n\n"
+        selected: true
+        title: LLM
+        type: llm
+        variables: []
+        vision:
+          configs:
+            detail: high
+            variable_selector:
+            - '1734706197729'
+            - images
+          enabled: true
+      height: 133
+      id: '1734706364676'
+      position:
+        x: 334
+        y: 266.5
+      positionAbsolute:
+        x: 334
+        y: 266.5
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '1734706364676'
+          - error_message
+          variable: error_message
+        selected: false
+        title: 終了
+        type: end
+      height: 89
+      id: '1734706467082'
+      position:
+        x: 638
+        y: 266.5
+      positionAbsolute:
+        x: 638
+        y: 266.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1734706364676'
+          - text
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4-turbo
+          provider: openai
+        prompt_template:
+        - id: bff5c9d6-e4fc-4c3a-a1c0-f47351a7657f
+          role: system
+          text: 'どんな性格の人なのか要約してください
+
+            {{#context#}}'
+        - id: ee4d5c7b-8248-4b22-a5ef-906598b7546a
+          role: assistant
+          text: 日本語でお願いします。
+        selected: false
+        title: LLM 2
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 97
+      id: '1734707916394'
+      position:
+        x: 638
+        y: 395.5
+      positionAbsolute:
+        x: 638
+        y: 395.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1734707916394'
+          - text
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gemini-1.5-pro
+          provider: google
+        prompt_template:
+        - id: 27e00218-369b-4a4c-a9c7-703584b5b138
+          role: system
+          text: '下記の性格の中でどれが一番近いと思いますか？
+
+            {{#context#}}'
+        selected: false
+        title: LLM 3
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 97
+      id: '1734708334273'
+      position:
+        x: 942
+        y: 399.5
+      positionAbsolute:
+        x: 942
+        y: 399.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1734707916394'
+          - text
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.3
+          mode: chat
+          name: gemini-1.5-pro
+          provider: google
+        prompt_template:
+        - id: 6a02f4d9-23da-4382-96a7-b920d0b5ee3f
+          role: system
+          text: '{{#context#}}
+
+            運命のシチュエーションを提示してください'
+        selected: false
+        title: LLM 4
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 97
+      id: '1734708467925'
+      position:
+        x: 942
+        y: 536.5
+      positionAbsolute:
+        x: 942
+        y: 536.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '1734708467925'
+          - text
+          variable: text
+        selected: false
+        title: 終了 2
+        type: end
+      height: 89
+      id: '1734708614336'
+      position:
+        x: 1246
+        y: 536.5
+      positionAbsolute:
+        x: 1246
+        y: 536.5
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '1734708334273'
+          - text
+          variable: text
+        selected: false
+        title: 終了 3
+        type: end
+      height: 89
+      id: '1734708633520'
+      position:
+        x: 1246
+        y: 399.5
+      positionAbsolute:
+        x: 1246
+        y: 399.5
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        author: Dify
+        desc: ''
+        height: 88
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"自分の性格","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"運命の指示","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"相手の指示","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 240
+      height: 88
+      id: '1734775023672'
+      position:
+        x: 384.28571428571433
+        y: 985.7142857142858
+      positionAbsolute:
+        x: 384.28571428571433
+        y: 985.7142857142858
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 240
+    viewport:
+      x: 264.89071211026794
+      y: 99.9617608137358
+      zoom: 0.5822330179364916
