@@ -1,0 +1,59 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id     String  @id @default(cuid(2))
+  sex    String  @db.Char(1) @default("0")  /* 0=未回答, 1=男, 2=女, 9=男女以外*/
+  userId String  @unique
+}
+
+model PersonalitySpecify {
+  id     String
+  md5    String
+  traits String
+  score  Float
+
+  @@id([id, md5, traits])
+}
+
+model Photos {
+  id     String
+  md5    String
+  createdAt DateTime @default(now())
+  gpsLong Float?
+  gpsLat  Float?
+  photoCreatedAt DateTime?
+  photo  Bytes
+
+  @@id([id, md5])
+}
+
+model Events {
+  id      String       @id
+  beginAt DateTime
+  endAt   DateTime
+  name    String
+  place   String
+  participationFee Int
+  remarks  String
+  url      String
+}
+
+model FamousQuote {
+  id     Int      @id
+  quote  String       // 名言
+  author String       // 発言者
+  explanation String  // 解説
+}
