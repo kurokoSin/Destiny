@@ -121,18 +121,6 @@ workflow:
         title: 開始
         type: start
         variables:
-        - allowed_file_extensions: []
-          allowed_file_types:
-          - image
-          - document
-          allowed_file_upload_methods:
-          - local_file
-          label: images
-          max_length: 10
-          options: []
-          required: true
-          type: file-list
-          variable: images
         - label: Gender
           max_length: 48
           options:
@@ -157,6 +145,18 @@ workflow:
           required: true
           type: number
           variable: Generation
+        - allowed_file_extensions: []
+          allowed_file_types:
+          - image
+          - document
+          allowed_file_upload_methods:
+          - local_file
+          label: images
+          max_length: 5
+          options: []
+          required: true
+          type: file-list
+          variable: images
       height: 185
       id: '1734706197729'
       position:
@@ -172,10 +172,8 @@ workflow:
       width: 244
     - data:
         context:
-          enabled: true
-          variable_selector:
-          - sys
-          - files
+          enabled: false
+          variable_selector: []
         desc: 性格
         error_strategy: fail-branch
         model:
@@ -187,19 +185,18 @@ workflow:
         prompt_template:
         - id: 15655440-e73e-4b19-9a1d-02249640f946
           role: system
-          text: "{{#context#}}\n\n```xml\n<instruction>\n  <task_description>\n  \
-            \  アップロードした複数の画像から画像の持ち主の性格を引き出し、重要情報をまとめる\n  </task_description>\n\n\
-            \  <instructions>\n    1. まず、アップロードされた画像を1つずつ確認します。\n    2. 各画像から持ち主の表情、服装、周囲の環境などを注意深く観察し、性格を推測します。\n\
-            \    3. 画像ごとに性格に関連する特徴や情報を抽出し、まとめます。\n    4. 重要な情報を整理し、XMLタグを使用せずに出力します。\n\
-            \  </instructions>\n\n  <examples>\n    <example>\n      <input>\n   \
-            \     アップロードされた画像1: 表情は明るく、カジュアルな服装、自然の中で笑顔を浮かべている\n      </input>\n \
-            \     <output>\n        持ち主は明るくて自然を楽しむタイプであることが推測される\n      </output>\n\
-            \    </example>\n    <example>\n      <input>\n        アップロードされた画像2: 眉間にしわが寄り、シックなスーツを着用、オフィスのデスクで真剣な表情\n\
-            \      </input>\n      <output>\n        持ち主は真面目で仕事に真剣に取り組むタイプであることが推測される\n\
+          text: "\n\n```xml\n<instruction>\n  <task_description>\n    アップロードした複数の画像から画像の持ち主の性格を引き出し、重要情報をまとめる\n\
+            \  </task_description>\n\n  <instructions>\n    1. まず、アップロードされた画像を1つずつ確認します。\n\
+            \    2. 各画像から持ち主の表情、服装、周囲の環境などを注意深く観察し、性格を推測します。\n    3. 画像ごとに性格に関連する特徴や情報を抽出し、まとめます。\n\
+            \    4. 重要な情報を整理し、XMLタグを使用せずに出力します。\n  </instructions>\n\n  <examples>\n\
+            \    <example>\n      <input>\n        アップロードされた画像1: 表情は明るく、カジュアルな服装、自然の中で笑顔を浮かべている\n\
+            \      </input>\n      <output>\n        持ち主は明るくて自然を楽しむタイプであることが推測される\n\
             \      </output>\n    </example>\n    <example>\n      <input>\n     \
-            \   アップロードされた画像3: 大きな笑顔で友人と一緒に写っており、カジュアルな服装、カフェの中でリラックスした雰囲気\n      </input>\n\
-            \      <output>\n        持ち主は社交的でリラックスした雰囲気を好むタイプであることが推測される\n      </output>\n\
-            \    </example>\n  </examples>\n</instruction>\n```"
+            \   アップロードされた画像2: 眉間にしわが寄り、シックなスーツを着用、オフィスのデスクで真剣な表情\n      </input>\n\
+            \      <output>\n        持ち主は真面目で仕事に真剣に取り組むタイプであることが推測される\n      </output>\n\
+            \    </example>\n    <example>\n      <input>\n        アップロードされた画像3: 大きな笑顔で友人と一緒に写っており、カジュアルな服装、カフェの中でリラックスした雰囲気\n\
+            \      </input>\n      <output>\n        持ち主は社交的でリラックスした雰囲気を好むタイプであることが推測される\n\
+            \      </output>\n    </example>\n  </examples>\n</instruction>\n```"
         selected: false
         title: LLM
         type: llm
@@ -219,7 +216,7 @@ workflow:
       positionAbsolute:
         x: 334
         y: 292.5
-      selected: false
+      selected: true
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -281,7 +278,7 @@ workflow:
       positionAbsolute:
         x: 638
         y: 558.5
-      selected: true
+      selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -398,6 +395,6 @@ workflow:
       type: custom
       width: 244
     viewport:
-      x: 112.32091117047986
-      y: 4.983830980648122
+      x: -282.91362617172786
+      y: -4.293070007343715
       zoom: 0.7959714531689172
