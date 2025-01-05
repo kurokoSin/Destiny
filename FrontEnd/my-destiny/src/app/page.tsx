@@ -15,7 +15,7 @@ export default function Home() {
               priority
             />
             <h1 className="text-4xl font-bold text-center mb-8 text-purple-600 animate-blur-in">
-                <a href="/dashboard">運命'ker<br />
+                <a href="/profile">運命&apos;ker<br />
                 <div className="text-xs">タップしてください</div></a>
             </h1>
         </div>

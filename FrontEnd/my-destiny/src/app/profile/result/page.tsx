@@ -1,11 +1,11 @@
-import Image from "next/image";
+// import Image from "next/image";
 import Link  from "next/link";
 
 export default function Home() {
   return (<>
     <h4 className="text-4xl font-bold text-center mt-2 me-auto text-purple-500 w-full max-w-md border-b-2 border-solid">
       <div className="w-full max-w-md flex">
-        <div>運命'ker</div>
+        <div>運命&apos;ker</div>
       </div>
     </h4>
     <main className="flex flex-col gap-8 p-3">

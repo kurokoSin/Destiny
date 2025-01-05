@@ -25,11 +25,6 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <head>
-        <script src="https://cdn.tailwindcss.com"></script>
-        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"></link>
-        <style>
-            @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
-        </style>
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased h-screen`}

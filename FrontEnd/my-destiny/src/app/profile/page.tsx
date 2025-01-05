@@ -1,15 +1,15 @@
 "use client";
 
 import React, { useState } from "react";
-import axios from "axios";
+// import axios from "axios";
 import Image from "next/image";
 
-export default () => {
+export default function Home() {
   const user_id = "x3zncbzaecv1shnh9vz7hq3e";
   const [isCommentSending, setIsCommentSending] = useState(false);
   const [images, setImages] = useState<File[]>([]);
-  const maxImagesUpload = 4; // 画像を最大4枚まで選択・アップロード
-  const [commentText, setCommentText] = useState<string>("");
+  // const maxImagesUpload = 4; // 画像を最大4枚まで選択・アップロード
+  // const [commentText, setCommentText] = useState<string>("");
   const inputId =  "p" + user_id; // Math.random().toString(32).substring(2);
 
   const handleOnSubmit = async (e: React.SyntheticEvent): Promise<void> => {
@@ -29,7 +29,6 @@ export default () => {
     // const postedComment = await axios.post("/api/v1/comments", data);
     setIsCommentSending(false);
 
-    alert("送信完了しました。");
     location.href="/profile/result";
   };
 
@@ -48,7 +47,7 @@ export default () => {
   return (<>
     <h4 className="text-4xl font-bold text-center mt-2 me-auto text-purple-500 w-full max-w-md border-b-2 border-solid">
       <div className="w-full max-w-md flex">
-        <div>運命'ker</div>
+        <div>運命&apos;ker</div>
       </div>
     </h4>
     <form action="" onSubmit={(e) => handleOnSubmit(e)}>

@@ -7,7 +7,7 @@ export default function Home() {
         {/* <!-- Screen 1 --> */}
         <h3 className="text-4xl font-bold text-center mt-2 mb-8 me-auto text-purple-500 w-full max-w-md">
           <div className="w-full max-w-md flex">
-            <div>運命'ker</div>
+            <div>運命&apos;ker</div>
             <div className="ms-auto">
               <Link href={`/profile`}><Image src="/person-circle.svg" alt="account" width={32} height={32}/></Link>
             </div>

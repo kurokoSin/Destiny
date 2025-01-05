@@ -12,27 +12,20 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      animation: {
+          "text-blur-in": "text-blur-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530)   both"
+      },
+      keyframes: {
+          "text-blur-in": {
+              "0%": {
+                  filter: "blur(.01)"
+              },
+              to: {
+                  filter: "blur(12px) opacity(0%)"
+              }
+          }
+      }
     },
   },
   plugins: [],
 } satisfies Config;
-
-module.exports = {
-    theme: {
-        extend: {
-            animation: {
-                "text-blur-in": "text-blur-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530)   both"
-            },
-            keyframes: {
-                "text-blur-in": {
-                    "0%": {
-                        filter: "blur(.01)"
-                    },
-                    to: {
-                        filter: "blur(12px) opacity(0%)"
-                    }
-                }
-            }
-        }
-    }
-}
