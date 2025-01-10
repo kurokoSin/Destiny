@@ -1,0 +1,534 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: workflow
+  name: 運命界隈
+  use_icon_as_answer_icon: false
+kind: app
+version: 0.1.5
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions: []
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      enabled: true
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        image_file_size_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 9
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        sourceType: start
+        targetType: llm
+      id: 1734706197729--1734706364676-target
+      source: '1734706197729'
+      sourceHandle: source
+      target: '1734706364676'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: end
+      id: 1734706364676-fail-branch-1734706467082-target
+      source: '1734706364676'
+      sourceHandle: fail-branch
+      target: '1734706467082'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: llm
+      id: 1734706364676-source-1734707916394-target
+      source: '1734706364676'
+      sourceHandle: source
+      target: '1734707916394'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: llm
+      id: 1734706364676-source-1735629302010-target
+      source: '1734706364676'
+      sourceHandle: source
+      target: '1735629302010'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: end
+      id: 1735629302010-source-1734708633520-target
+      source: '1735629302010'
+      sourceHandle: source
+      target: '1734708633520'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: llm
+      id: 1734706364676-source-1736332339052-target
+      source: '1734706364676'
+      sourceHandle: source
+      target: '1736332339052'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: end
+      id: 1736332339052-source-1734708633520-target
+      source: '1736332339052'
+      sourceHandle: source
+      target: '1734708633520'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: llm
+      id: 1734707916394-source-1736512511468-target
+      source: '1734707916394'
+      sourceHandle: source
+      target: '1736512511468'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: end
+      id: 1736512511468-source-1734708633520-target
+      source: '1736512511468'
+      sourceHandle: source
+      target: '1734708633520'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: 画像を複数（5枚前後）と性別を入力してください！
+        selected: false
+        title: 開始
+        type: start
+        variables:
+        - label: Gender
+          max_length: 48
+          options:
+          - 男性
+          - 女性
+          - 男性→男性
+          - 女性→女性
+          - バイセクシャル
+          required: true
+          type: select
+          variable: Gender
+        - allowed_file_extensions: []
+          allowed_file_types:
+          - image
+          allowed_file_upload_methods:
+          - local_file
+          - remote_url
+          label: 年齢を入力してください。
+          max_length: 5
+          options:
+          - ''
+          required: true
+          type: number
+          variable: Generation
+        - allowed_file_extensions: []
+          allowed_file_types:
+          - image
+          - document
+          allowed_file_upload_methods:
+          - local_file
+          label: あなたの好きな写真をアップロードしてください！下のUpload from..には入れない
+          max_length: 5
+          options: []
+          required: true
+          type: file-list
+          variable: images
+      height: 185
+      id: '1734706197729'
+      position:
+        x: 30
+        y: 292.5
+      positionAbsolute:
+        x: 30
+        y: 292.5
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: 性格
+        error_strategy: fail-branch
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4o
+          provider: openai
+        prompt_template:
+        - id: 15655440-e73e-4b19-9a1d-02249640f946
+          role: system
+          text: "\n\n```xml\n<instruction>\n  <task_description>\n    アップロードした複数の画像から画像の持ち主の性格を引き出し、重要情報をまとめる\n\
+            \  </task_description>\n\n  <instructions>\n    1. まず、アップロードされた画像を1つずつ確認します。\n\
+            \    2. 各画像から持ち主の表情、服装、周囲の環境などを注意深く観察し、性格を推測します。\n    3. 画像ごとに性格に関連する特徴や情報を抽出し、まとめます。\n\
+            \    4. 重要な情報を整理し、XMLタグを使用せずに出力します。\n  </instructions>\n\n  <examples>\n\
+            \    <example>\n      <input>\n        アップロードされた画像1: 表情は明るく、カジュアルな服装、自然の中で笑顔を浮かべている\n\
+            \      </input>\n      <output>\n        持ち主は明るくて自然を楽しむタイプであることが推測される\n\
+            \      </output>\n    </example>\n    <example>\n      <input>\n     \
+            \   アップロードされた画像2: 眉間にしわが寄り、シックなスーツを着用、オフィスのデスクで真剣な表情\n      </input>\n\
+            \      <output>\n        持ち主は真面目で仕事に真剣に取り組むタイプであることが推測される\n      </output>\n\
+            \    </example>\n    <example>\n      <input>\n        アップロードされた画像3: 大きな笑顔で友人と一緒に写っており、カジュアルな服装、カフェの中でリラックスした雰囲気\n\
+            \      </input>\n      <output>\n        持ち主は社交的でリラックスした雰囲気を好むタイプであることが推測される\n\
+            \      </output>\n    </example>\n  </examples>\n</instruction>\n```"
+        retry_config:
+          max_retries: 3
+          retry_enabled: false
+          retry_interval: 1000
+        selected: false
+        title: LLM
+        type: llm
+        variables: []
+        vision:
+          configs:
+            detail: high
+            variable_selector:
+            - '1734706197729'
+            - images
+          enabled: true
+      height: 161
+      id: '1734706364676'
+      position:
+        x: 334
+        y: 292.5
+      positionAbsolute:
+        x: 334
+        y: 292.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '1734706364676'
+          - error_message
+          variable: error_message
+        selected: false
+        title: 終了
+        type: end
+      height: 89
+      id: '1734706467082'
+      position:
+        x: 638
+        y: 292.5
+      positionAbsolute:
+        x: 638
+        y: 292.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4-turbo
+          provider: openai
+        prompt_template:
+        - id: bff5c9d6-e4fc-4c3a-a1c0-f47351a7657f
+          role: system
+          text: '下記の分をどんな性格の人なのか「バーナム効果」を意識しつつ要約してください。
+
+            日本語でお願いします。
+
+
+            {{#1734706364676.text#}}
+
+
+            '
+        selected: false
+        title: LLM 2
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 97
+      id: '1734707916394'
+      position:
+        x: 638
+        y: 637
+      positionAbsolute:
+        x: 638
+        y: 637
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: 変数名｛sex,age,big_five｝json
+        outputs:
+        - value_selector:
+          - '1734706197729'
+          - Gender
+          variable: Gender
+        - value_selector:
+          - '1734706197729'
+          - Generation
+          variable: age
+        - value_selector:
+          - '1735629302010'
+          - text
+          variable: big_five
+        - value_selector:
+          - '1734707916394'
+          - text
+          variable: if_result
+        - value_selector:
+          - '1736332339052'
+          - text
+          variable: fortune
+        - value_selector:
+          - '1734706364676'
+          - error_message
+          variable: error_message
+        - value_selector:
+          - '1736512511468'
+          - text
+          variable: one_phrase
+        selected: false
+        title: 終了 3
+        type: end
+      height: 273
+      id: '1734708633520'
+      position:
+        x: 1246
+        y: 504
+      positionAbsolute:
+        x: 1246
+        y: 504
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        author: Dify
+        desc: ''
+        height: 88
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"自分の性格","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"運命の指示","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"相手の指示","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"場所は名古屋市の広報とかで選定","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"Z世代が突き刺さるもの","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"普段いかないところを案内してみる","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 240
+      height: 88
+      id: '1734775023672'
+      position:
+        x: 384.28571428571433
+        y: 989.8996765195068
+      positionAbsolute:
+        x: 384.28571428571433
+        y: 989.8996765195068
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 240
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4o
+          provider: openai
+        prompt_template:
+        - id: 41e90d30-7fd0-4661-9da6-9c8b04c02760
+          role: system
+          text: "{{#1734706364676.text#}}\n\n```xml\n<instructions>\n1. Evaluate the\
+            \ input personality based on the \"Big Five Theory\" by assigning a score\
+            \ from 0 to 100 for each of the five dimensions: Extraversion, Agreeableness,\
+            \ Conscientiousness, Neuroticism, and Openness.\n2. Ensure that the scores\
+            \ accurately reflect the individual's personality traits according to\
+            \ the theory.\n3. Remember to provide the output in JSON format without\
+            \ any XML tags.\n\n<examples>\n<example>\nInput:\nPersonality: \n- Extraversion:\
+            \ 80\n- Agreeableness: 60\n- Conscientiousness: 40\n- Neuroticism: 30\n\
+            - Openness: 70\n\nOutput:\n{\n  \"BigFivePersonality\": {\n    \"Extraversion\"\
+            : 80,\n    \"Agreeableness\": 60,\n    \"Conscientiousness\": 40,\n  \
+            \  \"Neuroticism\": 30,\n    \"Openness\": 70\n  }\n}\n\n<example>\nInput:\n\
+            Personality: \n- Extraversion: 20\n- Agreeableness: 90\n- Conscientiousness:\
+            \ 70\n- Neuroticism: 10\n- Openness: 80\n\nOutput:\n{\n  \"BigFivePersonality\"\
+            : {\n    \"Extraversion\": 20,\n    \"Agreeableness\": 90,\n    \"Conscientiousness\"\
+            : 70,\n    \"Neuroticism\": 10,\n    \"Openness\": 80\n  }\n}\n\n<example>\n\
+            Input:\nPersonality: \n- Extraversion: 50\n- Agreeableness: 50\n- Conscientiousness:\
+            \ 50\n- Neuroticism: 50\n- Openness: 50\n\nOutput:\n{\n  \"BigFivePersonality\"\
+            : {\n    \"Extraversion\": 50,\n    \"Agreeableness\": 50,\n    \"Conscientiousness\"\
+            : 50,\n    \"Neuroticism\": 50,\n    \"Openness\": 50\n  }\n}\n```"
+        selected: false
+        title: LLM 3
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 97
+      id: '1735629302010'
+      position:
+        x: 942
+        y: 367
+      positionAbsolute:
+        x: 942
+        y: 367
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4o
+          provider: openai
+        prompt_template:
+        - id: 8f235eeb-4f8d-4701-ae99-d491ed8a3edc
+          role: system
+          text: "```xml\n<prompt>\n    <instructions>\n        1. 与えられた性格を基にその人の今日の運勢を占ってください。\n\
+            \        2. ラッキーアイテムも合わせ出力してください。\n        3. 占い結果は簡潔に表示してください。\n    \
+            \    4. 出力にはXMLタグを含めないでください。\n    </instructions>\n\n    <examples>\n\
+            \        <example>\n            Input:\n            性格: 積極的\n        \
+            \    Output:\n            今日の運勢: 良い\n            ラッキーアイテム: ペンダント\n   \
+            \     </example>\n        \n        <example>\n            Input:\n  \
+            \          性格: 冷静\n            Output:\n            今日の運勢: 普通\n      \
+            \      ラッキーアイテム: ペット\n        </example>\n        \n        <example>\n\
+            \            Input:\n            性格: 楽観的\n            Output:\n      \
+            \      今日の運勢: 大吉\n            ラッキーアイテム: 笑顔\n        </example>\n    </examples>\n\
+            </prompt>\n```\n性格{{#1734706364676.text#}}"
+        selected: false
+        title: LLM 4
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 97
+      id: '1736332339052'
+      position:
+        x: 942
+        y: 504
+      positionAbsolute:
+        x: 942
+        y: 504
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4o
+          provider: openai
+        prompt_template:
+        - role: system
+          text: '性格を一言で表してください。
+
+            {{#1734707916394.text#}}
+
+
+            '
+        selected: false
+        title: LLM 5
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 97
+      id: '1736512511468'
+      position:
+        x: 942
+        y: 641
+      positionAbsolute:
+        x: 942
+        y: 641
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: -38.999999999999886
+      y: 33
+      zoom: 0.7
