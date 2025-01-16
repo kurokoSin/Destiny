@@ -1,0 +1,325 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: workflow
+  name: 運命の指示ワークフロー
+  use_icon_as_answer_icon: false
+kind: app
+version: 0.1.5
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        image_file_size_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: llm
+      id: 1736746699001-source-1736746707856-target
+      source: '1736746699001'
+      sourceHandle: source
+      target: '1736746707856'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: llm
+      id: 1736746699001-source-1736746737905-target
+      source: '1736746699001'
+      sourceHandle: source
+      target: '1736746737905'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: start
+        targetType: tool
+      id: 1736746695825-source-1736746782127-target
+      source: '1736746695825'
+      sourceHandle: source
+      target: '1736746782127'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: llm
+      id: 1736746782127-source-1736746699001-target
+      source: '1736746782127'
+      sourceHandle: source
+      target: '1736746699001'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: end
+      id: 1736746707856-source-1736746837975-target
+      source: '1736746707856'
+      sourceHandle: source
+      target: '1736746837975'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: end
+      id: 1736746737905-source-1736746837975-target
+      source: '1736746737905'
+      sourceHandle: source
+      target: '1736746837975'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: 開始
+        type: start
+        variables: []
+      height: 53
+      id: '1736746695825'
+      position:
+        x: 80
+        y: 282
+      positionAbsolute:
+        x: 80
+        y: 282
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4o
+          provider: openai
+        prompt_template:
+        - id: f32cbb5e-1dc8-4d9e-9b07-7a5d7c1e6e74
+          role: system
+          text: '運命の出会いを男性、女性側それぞれに恋愛小説のような指示文を作成したいです。 注意事項に従って作成してください。---注意事項---
+
+            １．恋愛小説のような甘いシチュエーションで作成してください。
+
+            ２．指示文には「場所、時間」を男性側、女性側共通のタイミングにしてください。
+
+            ３．場所は「鶴舞駅公園口、StationAiの１F、鶴舞公園の噴水、StationAiあいち創業館、部屋の右後ろ」の５つのうち１つを選択してください。
+
+            ４．時刻は現在時刻{{#1736746782127.text#}}の30分後から1時間後のどこかとしてください。
+
+             ------
+
+            例文を下記に作成します。
+
+            男性;「1月14日15:30に鶴舞駅公園口で困っている人を助けてください。」
+
+            女性;「1月14日15:30に鶴舞駅公園口でハンカチを落としてください。」'
+        selected: false
+        title: LLM
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 97
+      id: '1736746699001'
+      position:
+        x: 684
+        y: 282
+      positionAbsolute:
+        x: 684
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4o
+          provider: openai
+        prompt_template:
+        - id: 6e5de90f-4329-4ed4-9af2-94b5ee21760f
+          role: system
+          text: '男性の指示だけ抜き出してください。
+
+            {{#1736746699001.text#}}'
+        selected: false
+        title: LLM 2
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 97
+      id: '1736746707856'
+      position:
+        x: 988
+        y: 282
+      positionAbsolute:
+        x: 988
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4o
+          provider: openai
+        prompt_template:
+        - id: 33b98073-5cf8-4c98-b7ef-d4844ebddcbe
+          role: system
+          text: '女性の指示だけ抜き出してください。
+
+            {{#1736746699001.text#}}'
+        selected: false
+        title: LLM 3
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 97
+      id: '1736746737905'
+      position:
+        x: 981.2962920575243
+        y: 490.14197716775254
+      positionAbsolute:
+        x: 981.2962920575243
+        y: 490.14197716775254
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        provider_id: time
+        provider_name: time
+        provider_type: builtin
+        selected: false
+        title: Current Time
+        tool_configurations:
+          format: '%m-%d %H:%M'
+          timezone: Asia/Tokyo
+        tool_label: Current Time
+        tool_name: current_time
+        tool_parameters: {}
+        type: tool
+      height: 115
+      id: '1736746782127'
+      position:
+        x: 384
+        y: 282
+      positionAbsolute:
+        x: 384
+        y: 282
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '1736746699001'
+          - text
+          variable: result_both
+        - value_selector:
+          - '1736746707856'
+          - text
+          variable: instruction_male
+        - value_selector:
+          - '1736746737905'
+          - text
+          variable: instruction_female
+        selected: false
+        title: 終了
+        type: end
+      height: 141
+      id: '1736746837975'
+      position:
+        x: 1292
+        y: 282
+      positionAbsolute:
+        x: 1292
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: 88.03135362374576
+      y: 165.5669140910959
+      zoom: 0.6129677900984902
