@@ -18,10 +18,10 @@ export default {
       keyframes: {
           "text-blur-in": {
               "0%": {
-                  filter: "blur(.01)"
+                  filter: "blur(.01) opacity(0%)"
               },
               to: {
-                  filter: "blur(12px) opacity(0%)"
+                  filter: "blur(12px) opacity(100%)"
               }
           }
       }
