@@ -10,15 +10,15 @@ const nextConfig: NextConfig = {
                                           pat01: "両手いっぱいに野菜をかかえてください。",
                                           pat02: "エコバッグを余分に一つ持っていってください。" },
 
-        { key:"cm5xpg2u000140cl5gvwwht2t", date: "2025-01-18", day_week: "Sat", time_begin: "15:00", time_end: "17:00", isopen: false, 
-                                          heading: "",
-                                          pat01: "",
-                                          pat02: ""},
-
         { key:"cm5xph6jo00150cl5eek59jwi", date: "2025-01-19", day_week: "Sun", time_begin: "11:00", time_end: "17:00", isopen: true,  
                                           heading: "秀吉清正記念館　パネル展「城の構造」",
                                           pat01: "",
                                           pat02: ""},
+
+        { key:"cm5xpg2u000140cl5gvwwht2t", date: "2025-01-19", day_week: "Sun", time_begin: "17:50", time_end: "18:00", isopen: true, 
+                                          heading: "ＳＴＡＴＩＯＮ　Ａｉ　ＨａｃｋＧＡＬＡ",
+                                          pat01: "運命'kerのアイコンが表示されているところでハンカチを落として、近くで本を読んでてください。",
+                                          pat02: "運命'kerのアイコン付近のハンカチを拾って、近くで本を読んでいる人に渡してください"},
 
         { key:"cm5xplq4t00160cl5fsq5e6nu", date: "2025-01-25", day_week: "Sat", time_begin: "15:00", time_end: "17:00", isopen: false,
                                           heading: "",
