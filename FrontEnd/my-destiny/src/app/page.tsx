@@ -1,7 +1,26 @@
+"use client";
+// import { useState, useEffect } from 'react';
 import Image from "next/image";
+// import { createId } from '@paralleldrive/cuid2';
+import { MyLink } from './components/ButtonNormal';
 
 export default function Home() {
-  
+  /* Id の作成 */
+  // const CreateIdByClient: string = (() => {
+  //   const [CookieId, setCookieId] = useState<String|null>(null);
+  //   useEffect( () => {
+  //     const _Id = window.localStorage.getItem("CookieId");
+  //     const _NewId = createId();
+  //     if (_Id === null) {
+  //       window.localStorage.setItem("CookieId", _NewId);
+  //     }
+  //     setCookieId( _Id ? _Id : _NewId);
+  //   }, []);
+
+  //   return CookieId ? CookieId.toString() : "".toString() ;
+  // })();
+  // console.debug(CreateIdByClient);
+
   return (<>
     <div id="app" className="container mx-auto px-4 h-full flex flex-col justify-center items-center">
         {/* <!-- App Name --> */}
@@ -15,9 +34,10 @@ export default function Home() {
               priority
             />
             <h1 className="text-4xl font-bold text-center mb-8 text-purple-600 animate-blur-in">
-                <a href="/profile">運命&apos;ker<br />
-                <div className="text-xs">タップしてください</div></a>
+                運命&apos;ker
             </h1>
+            <MyLink caption="①　性格診断　"   href="https://udify.app/workflow/nC82nC595yXiDnN7" target="analyze"/>
+            <MyLink caption="② 運命のお告げ" href="/dashboard" target=""/>
         </div>
     </div>
   </>);

@@ -1,7 +1,31 @@
-// import Image from "next/image";
-import Link  from "next/link";
+'use client'
 
-export default function Home() {
+// import { useState } from 'react'
+// import { useEffect } from 'react'
+import Link  from "next/link"
+// import axios from 'axios'
+import { BtnStyle } from '@/app/components/ButtonNormal';
+
+export default async function Home() {
+  const description = "ただいま、登録いただいた写真から性格診断しています。\r\nしばらくお待ちください。"
+  // const [description, setDescription] = useState(
+  //   "ただいま、登録いただいた写真から診断しています。\r\nしばらくおまちください。"
+  // )
+
+  // 初回レンダリング時にAIを呼び出し
+  // useEffect(() => {
+  //   axios
+  //   .post( "/api/analyze" )
+  //   .then( (response) => {
+  //     const _msg = response.data?.message || "診断に失敗しました。もう一度お願いします。";
+  //     setDescription( _msg );
+  //   })
+  //   .catch( (error) => {
+  //     console.error("API request failed:", error);
+  //     setDescription( "診断に失敗しました。");
+  //   });
+  // }, []);
+
   return (<>
     <h4 className="text-4xl font-bold text-center mt-2 me-auto text-purple-500 w-full max-w-md border-b-2 border-solid">
       <div className="w-full max-w-md flex">
@@ -14,14 +38,19 @@ export default function Home() {
           <div className="text-l">あなたにふさわしい運命のお相手をお探しします。運命の啓示があるまで、数日おまちください。</div>
           <div className="notification mt-5">あなたの性格診断結果</div>
           <p className="border border-gray-400 border-dotted bg-yellow-100">
-          マメな性格で気配りもうまく、誰とでも合わせることができます。
-          ただ、慎重になりすぎて用心深くなったり、あれこれ考えたりしてしまうクセがあるようです。いったん夢中になるとほかの事が目に入らなくなることもあります。
-          親しみやすく表裏のない性格で人を惹きつける魅力があります。やや根気にかけるものの、物事を多角的にとらえて分析することができます。
+            {description}
           </p>
-          <Link href={`/dashboard`} 
-            className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-4 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 flex items-center justify-center mt-3"
+          <a href={process.env.NEXT_PUBLIC_Questionnaire_URL} 
+            referrerPolicy="unsafe-url"
+            className={BtnStyle()}
           >
-            戻る
+            アンケートへ
+          </a>
+          <Link href={`/`} 
+            referrerPolicy="unsafe-url"
+            className={BtnStyle()}
+          >
+            もう一度最初から
           </Link>
       </div>
     </main>
