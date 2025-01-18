@@ -30,7 +30,7 @@ export default function Home() {
                   return <>
                   <div key={key} className="flex flex-col border-b-2">
                     <div className="">{ev.date} ({DayOfWeek(ev.day_week)}) {ev.time_begin} 〜 {ev.time_end}</div>
-                    <div className=""><Link href={`revelation`}>{
+                    <div className=""><Link href={`revelation/`+ ev.key}>{
                       ev.isopen ? 
                         ev.heading.substring(0,14) : 
                         <Image className="mx-auto" src="/mail_sealed_love.svg" alt="未開封" width={32} height={32} />

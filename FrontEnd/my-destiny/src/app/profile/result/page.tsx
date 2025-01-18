@@ -10,20 +10,36 @@ export default async function Home() {
   const description = "ただいま、登録いただいた写真から性格診断しています。\r\nしばらくお待ちください。"
   // const [description, setDescription] = useState(
   //   "ただいま、登録いただいた写真から診断しています。\r\nしばらくおまちください。"
-  // )
+  // );
 
-  // 初回レンダリング時にAIを呼び出し
+  // // 初回レンダリング時にAIを呼び出し
   // useEffect(() => {
-  //   axios
-  //   .post( "/api/analyze" )
-  //   .then( (response) => {
-  //     const _msg = response.data?.message || "診断に失敗しました。もう一度お願いします。";
-  //     setDescription( _msg );
-  //   })
-  //   .catch( (error) => {
-  //     console.error("API request failed:", error);
-  //     setDescription( "診断に失敗しました。");
-  //   });
+  //   // axios
+  //   // .post( "/api/analyze" )
+  //   // .then( (response) => {
+  //   //   const _msg = response.data?.message || "診断に失敗しました。もう一度お願いします。";
+  //   //   setDescription( _msg );
+  //   // })
+  //   // .catch( (error) => {
+  //   //   console.error("API request failed:", error);
+  //   //   setDescription( "診断に失敗しました。");
+  //   // });
+  //   try {
+  //     const response = await fetch('/api/analyze', {
+  //     })
+
+  //     if (response.ok) {
+  //       const result = await response.json()
+  //       console.info(result.message)
+  //     } else {
+  //       console.error('Analyze failed')
+  //       console.error(response.body)
+  //     }
+  //   } catch (error) {
+  //     console.error('Error:', error)
+  //   } finally {
+  //     console.info('close')
+  //   }
   // }, []);
 
   return (<>

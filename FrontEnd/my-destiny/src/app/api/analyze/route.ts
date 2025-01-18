@@ -16,7 +16,7 @@ export const config = {
 export async function POST(req: NextRequest) {
   console.debug(req);
   // const ApiKey = process.env.DIFY_KEY;
-  // const ApiUrl = process.env.ANALYZE_URL;
+  const ApiUrl = process.env.ANALYZE_URL;
 
   // const res = await axios.post(ApiUrl!, 
   //   {
@@ -44,6 +44,7 @@ export async function POST(req: NextRequest) {
       // big_five: res.data?.big_five,
       // message: res.data?.if_result,
       // one_phrase: res.data?.one_phrase, 
+      con: ApiUrl
     }
   );
   // revalidatePath('');
