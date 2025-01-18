@@ -208,6 +208,29 @@ workflow:
       zIndex: 0
     - data:
         isInIteration: false
+        sourceType: llm
+        targetType: llm
+      id: 1735629302010-source-1737179058484-target
+      selected: false
+      source: '1735629302010'
+      sourceHandle: source
+      target: '1737179058484'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: template-transform
+      id: 1737179058484-source-1737180089317-target
+      source: '1737179058484'
+      sourceHandle: source
+      target: '1737180089317'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
         sourceType: template-transform
         targetType: end
       id: 1737171593268-source-1734708633520-target
@@ -229,7 +252,8 @@ workflow:
           options:
           - 男性
           - 女性
-          - 第３の性、ノンバイナリー
+          - 男性→男性
+          - 女性→女性
           required: true
           type: select
           variable: Gender
@@ -349,10 +373,10 @@ workflow:
       id: '1734706467082'
       position:
         x: 638
-        y: 309.5
+        y: 305.5
       positionAbsolute:
         x: 638
-        y: 309.5
+        y: 305.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -386,11 +410,11 @@ workflow:
       height: 97
       id: '1734707916394'
       position:
-        x: 942
-        y: 654
+        x: 638
+        y: 434.5
       positionAbsolute:
-        x: 942
-        y: 654
+        x: 638
+        y: 434.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -402,18 +426,18 @@ workflow:
         - value_selector:
           - '1737171593268'
           - output
-          variable: result
-        selected: false
+          variable: '1'
+        selected: true
         title: 終了 3
         type: end
       height: 117
       id: '1734708633520'
       position:
-        x: 2207.8063018439607
-        y: 438.5
+        x: 1854
+        y: 531.5
       positionAbsolute:
-        x: 2207.8063018439607
-        y: 438.5
+        x: 1854
+        y: 531.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -480,15 +504,15 @@ workflow:
 
             Output:
 
-            Extraversion: 70
+            Extraversion: 70 /100
 
-            Agreeableness: 85
+            Agreeableness: 85 /100
 
-            Conscientiousness: 60
+            Conscientiousness: 60 /100
 
-            Neuroticism: 40
+            Neuroticism: 40 /100
 
-            Openness: 75
+            Openness: 75 /100
 
 
             '
@@ -502,10 +526,10 @@ workflow:
       id: '1735629302010'
       position:
         x: 638
-        y: 438.5
+        y: 620.5
       positionAbsolute:
         x: 638
-        y: 438.5
+        y: 620.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -550,11 +574,11 @@ workflow:
       height: 97
       id: '1737166906243'
       position:
-        x: 1145.2646729888459
-        y: 397.290093495437
+        x: 942
+        y: 624.5
       positionAbsolute:
-        x: 1145.2646729888459
-        y: 397.290093495437
+        x: 942
+        y: 624.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -563,7 +587,8 @@ workflow:
     - data:
         desc: ''
         selected: false
-        template: "\r\n♡写真からBigFive理論の数値を推測♡\r\n\r\n{{ text }}"
+        template: "\r\n\U0001F496写真からBigFive理論の数値を推測\U0001F496\r\n\r\n{{ text }}\r\
+          \n"
         title: 3_♡写真からBigFive理論の数値を推測♡
         type: template-transform
         variables:
@@ -574,11 +599,11 @@ workflow:
       height: 53
       id: '1737167326617'
       position:
-        x: 1562.4380368186978
-        y: 540.6303737588725
+        x: 1246
+        y: 624.5
       positionAbsolute:
-        x: 1562.4380368186978
-        y: 540.6303737588725
+        x: 1246
+        y: 624.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -587,7 +612,8 @@ workflow:
     - data:
         desc: ''
         selected: false
-        template: "\r\n♡深層心理♡\r\n\r\n{{ text }}"
+        template: "\r\n\U0001F496深層心理\U0001F496\r\n\r\n{{ text }}\r\n\r\n<a href=\"\
+          http://bit.ly/3PCiN3M\">運命のお告げ</a>"
         title: 4_♡深層心理♡
         type: template-transform
         variables:
@@ -598,11 +624,11 @@ workflow:
       height: 53
       id: '1737167733952'
       position:
-        x: 1550
-        y: 438.5
+        x: 1246
+        y: 717.5
       positionAbsolute:
-        x: 1550
-        y: 438.5
+        x: 1246
+        y: 717.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -611,7 +637,7 @@ workflow:
     - data:
         desc: ''
         selected: false
-        template: "\r\n♡写真からの人間性♡\r\n\r\n{{ text }}"
+        template: "\r\n\U0001F496写真からの人間性\U0001F496\r\n\r\n{{ text }}"
         title: 2_♡写真からの人間性♡
         type: template-transform
         variables:
@@ -622,11 +648,11 @@ workflow:
       height: 53
       id: '1737170256041'
       position:
-        x: 1550
-        y: 654
+        x: 1246
+        y: 531.5
       positionAbsolute:
-        x: 1550
-        y: 654
+        x: 1246
+        y: 531.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -658,11 +684,11 @@ workflow:
       height: 97
       id: '1737170460531'
       position:
-        x: 1246
-        y: 747
+        x: 942
+        y: 438.5
       positionAbsolute:
-        x: 1246
-        y: 747
+        x: 942
+        y: 438.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -671,7 +697,7 @@ workflow:
     - data:
         desc: ''
         selected: false
-        template: "♡あなたはこんな人！♡\r\n\r\n{{ text }}"
+        template: "\U0001F496あなたはこんな人！\U0001F496\r\n\r\n{{ text }}"
         title: 1_♡あなたはこんな人！♡
         type: template-transform
         variables:
@@ -682,11 +708,11 @@ workflow:
       height: 53
       id: '1737170497460'
       position:
-        x: 1550
-        y: 747
+        x: 1246
+        y: 438.5
       positionAbsolute:
-        x: 1550
-        y: 747
+        x: 1246
+        y: 438.5
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -719,17 +745,118 @@ workflow:
       height: 53
       id: '1737171593268'
       position:
-        x: 1918.3266731237823
-        y: 492.07087813941257
+        x: 1550
+        y: 531.5
       positionAbsolute:
-        x: 1918.3266731237823
-        y: 492.07087813941257
+        x: 1550
+        y: 531.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4o
+          provider: openai
+        prompt_template:
+        - id: 0de9a40c-3f2c-4075-a47c-2be568f77571
+          role: system
+          text: "```xml\n<instruction>\n    <task_description>\n        {{#1735629302010.text#}}BigFiveの点数をJSON形式にしてください。\n\
+            \            Extraversion: \n            Agreeableness: \n           \
+            \ Conscientiousness: \n            Neuroticism: \n            Openness:\
+            \ \n    </task_description>\n\n    <instructions>\n        1. Take the\
+            \ given BigFive scores provided in the task description.\n        2. Convert\
+            \ these scores into JSON format.\n        3. Ensure that the JSON output\
+            \ does not contain any XML tags.\n    </instructions>\n\n    <examples>\n\
+            \        <example>\n            Input:\n                Extraversion:\
+            \ 60\n                Agreeableness: 70\n                Conscientiousness:\
+            \ 50\n                Neuroticism: 40\n                Openness: 80\n\
+            \            Output:\n                {\n                    \"Extraversion\"\
+            : 60,\n                    \"Agreeableness\": 70,\n                  \
+            \  \"Conscientiousness\": 50,\n                    \"Neuroticism\": 40,\n\
+            \                    \"Openness\": 80\n                }\n        </example>\n\
+            \        \n        <example>\n            Input:\n                Extraversion:\
+            \ 90\n                Agreeableness: 85\n                Conscientiousness:\
+            \ 75\n                Neuroticism: 30\n                Openness: 95\n\
+            \            Output:\n                {\n                    \"Extraversion\"\
+            : 90,\n                    \"Agreeableness\": 85,\n                  \
+            \  \"Conscientiousness\": 75,\n                    \"Neuroticism\": 30,\n\
+            \                    \"Openness\": 95\n                }\n        </example>\n\
+            \        \n        <example>\n            Input:\n                Extraversion:\
+            \ 70\n                Agreeableness: 75\n                Conscientiousness:\
+            \ 60\n                Neuroticism: 45\n                Openness: 85\n\
+            \            Output:\n                {\n                    \"Extraversion\"\
+            : 70,\n                    \"Agreeableness\": 75,\n                  \
+            \  \"Conscientiousness\": 60,\n                    \"Neuroticism\": 45,\n\
+            \                    \"Openness\": 85\n                }\n        </example>\n\
+            \    </examples>\n</instruction>\n```"
+        selected: false
+        title: JSON形式
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 97
+      id: '1737179058484'
+      position:
+        x: 1246
+        y: 810.5
+      positionAbsolute:
+        x: 1246
+        y: 810.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        selected: false
+        template: "import matplotlib.pyplot as plt\r\nimport numpy as np\r\nimport\
+          \ json\r\n\r\n# JSONテキスト形式のデータ\r\njson_text = {{ text }}\r\n\r\n# JSON部分を抽出（```jsonと```を除去）\r\
+          \njson_data = json_text.strip(\"```json\").strip(\"```\").strip()\r\n\r\n\
+          # JSONデータを辞書形式に変換\r\ndata = json.loads(json_data)\r\n\r\n# 項目名と値を抽出\r\n\
+          labels = list(data.keys())\r\nvalues = list(data.values())\r\n\r\n# レーダーチャート用のデータ準備\r\
+          \nvalues += values[:1]  # 最初の値を最後にも追加してループを閉じる\r\nangles = np.linspace(0,\
+          \ 2 * np.pi, len(labels) + 1, endpoint=True)\r\n\r\n# 描画設定\r\nfig, ax =\
+          \ plt.subplots(figsize=(6, 6), subplot_kw=dict(polar=True))\r\n\r\n# データプロット\r\
+          \nax.plot(angles, values, label=\"Big Five Traits\", color=\"b\", linewidth=2)\r\
+          \nax.fill(angles, values, color=\"b\", alpha=0.25)\r\n\r\n# 軸ラベル設定\r\nax.set_yticks([20,\
+          \ 40, 60, 80, 100])\r\nax.set_yticklabels(['20', '40', '60', '80', '100'],\
+          \ color=\"gray\")\r\nax.set_xticks(angles[:-1])\r\nax.set_xticklabels(labels,\
+          \ fontsize=12)\r\n\r\n# グリッド線のスタイル調整\r\nax.grid(color=\"gray\", linestyle=\"\
+          --\", linewidth=0.5, alpha=0.7)\r\n\r\n# グラフタイトル\r\nplt.title(\"Big Five\
+          \ Personality Traits\", fontsize=16, pad=20)\r\n\r\n# プロット表示\r\nplt.legend(loc=\"\
+          upper right\", bbox_to_anchor=(1.3, 1.1))\r\nplt.show()"
+        title: テンプレート 6
+        type: template-transform
+        variables:
+        - value_selector:
+          - '1737179058484'
+          - text
+          variable: text
+      height: 53
+      id: '1737180089317'
+      position:
+        x: 1550
+        y: 832.5
+      positionAbsolute:
+        x: 1550
+        y: 832.5
       selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
       width: 244
     viewport:
-      x: -497.34370020917913
-      y: 128.34611557258938
-      zoom: 0.5050075414482502
+      x: -226.11504199000797
+      y: 28.59647251013422
+      zoom: 0.526374009104255
