@@ -3,7 +3,7 @@ app:
   icon: 🤖
   icon_background: '#FFEAD5'
   mode: workflow
-  name: 運命’ker
+  name: 運命ker
   use_icon_as_answer_icon: false
 kind: app
 version: 0.1.5
