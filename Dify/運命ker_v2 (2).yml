@@ -1,0 +1,862 @@
+app:
+  description: ''
+  icon: 14c38b58-39c2-44d7-bc0d-ea6c1de86e85
+  icon_background: '#FFEAD5'
+  mode: workflow
+  name: 運命ker_v2
+  use_icon_as_answer_icon: false
+kind: app
+version: 0.1.5
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions: []
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      enabled: false
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 9
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        sourceType: start
+        targetType: llm
+      id: 1734706197729--1734706364676-target
+      selected: false
+      source: '1734706197729'
+      sourceHandle: source
+      target: '1734706364676'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: end
+      id: 1734706364676-fail-branch-1734706467082-target
+      selected: false
+      source: '1734706364676'
+      sourceHandle: fail-branch
+      target: '1734706467082'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: llm
+      id: 1734706364676-source-1734707916394-target
+      selected: false
+      source: '1734706364676'
+      sourceHandle: source
+      target: '1734707916394'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: llm
+      id: 1734706364676-source-1735629302010-target
+      selected: false
+      source: '1734706364676'
+      sourceHandle: source
+      target: '1735629302010'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: template-transform
+      id: 1737166906243-source-1737167733952-target
+      source: '1737166906243'
+      sourceHandle: source
+      target: '1737167733952'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: template-transform
+      id: 1734707916394-source-1737170256041-target
+      source: '1734707916394'
+      sourceHandle: source
+      target: '1737170256041'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: template-transform
+      id: 1737170460531-source-1737170497460-target
+      source: '1737170460531'
+      sourceHandle: source
+      target: '1737170497460'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: llm
+      id: 1734707916394-source-1737170460531-target
+      source: '1734707916394'
+      sourceHandle: source
+      target: '1737170460531'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: llm
+      id: 1735629302010-source-1737166906243-target
+      source: '1735629302010'
+      sourceHandle: source
+      target: '1737166906243'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: template-transform
+      id: 1737166906243-source-1737167326617-target
+      source: '1737166906243'
+      sourceHandle: source
+      target: '1737167326617'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: template-transform
+        targetType: template-transform
+      id: 1737170497460-source-1737171593268-target
+      source: '1737170497460'
+      sourceHandle: source
+      target: '1737171593268'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: template-transform
+        targetType: template-transform
+      id: 1737170256041-source-1737171593268-target
+      source: '1737170256041'
+      sourceHandle: source
+      target: '1737171593268'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: template-transform
+        targetType: template-transform
+      id: 1737167326617-source-1737171593268-target
+      source: '1737167326617'
+      sourceHandle: source
+      target: '1737171593268'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: template-transform
+        targetType: template-transform
+      id: 1737167733952-source-1737171593268-target
+      source: '1737167733952'
+      sourceHandle: source
+      target: '1737171593268'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: llm
+      id: 1735629302010-source-1737179058484-target
+      selected: false
+      source: '1735629302010'
+      sourceHandle: source
+      target: '1737179058484'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: template-transform
+      id: 1737179058484-source-1737180089317-target
+      source: '1737179058484'
+      sourceHandle: source
+      target: '1737180089317'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: template-transform
+        targetType: end
+      id: 1737171593268-source-1734708633520-target
+      source: '1737171593268'
+      sourceHandle: source
+      target: '1734708633520'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: 画像を複数（5枚前後）と性別を入力してください！
+        selected: false
+        title: 開始
+        type: start
+        variables:
+        - label: '[必須]性別を入力してください！'
+          max_length: 48
+          options:
+          - 男性
+          - 女性
+          - その他、ノンバイナリー
+          required: true
+          type: select
+          variable: Gender
+        - label: '[必須]相手に望む性別を入力してください。'
+          max_length: 48
+          options:
+          - 男性
+          - 女性
+          required: true
+          type: select
+          variable: wantgender
+        - allowed_file_extensions: []
+          allowed_file_types:
+          - image
+          allowed_file_upload_methods:
+          - local_file
+          - remote_url
+          label: '[必須]年齢を入力してください！'
+          max_length: 5
+          options:
+          - ''
+          required: true
+          type: number
+          variable: Generation
+        - allowed_file_extensions: []
+          allowed_file_types:
+          - image
+          - document
+          allowed_file_upload_methods:
+          - local_file
+          label: '[必須]あなたの好きな写真をアップロードしてください！'
+          max_length: 10
+          options: []
+          required: true
+          type: file-list
+          variable: images
+        - label: '[任意]希望する交際期間を入力してください！'
+          max_length: 48
+          options:
+          - ３日
+          - ３カ月
+          - １年以上
+          required: false
+          type: select
+          variable: dating_period
+      height: 237
+      id: '1734706197729'
+      position:
+        x: 30
+        y: 305.5
+      positionAbsolute:
+        x: 30
+        y: 305.5
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: 性格
+        error_strategy: fail-branch
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4o
+          provider: openai
+        prompt_template:
+        - id: 15655440-e73e-4b19-9a1d-02249640f946
+          role: system
+          text: "\n\n```xml\n<instruction>\n  <task_description>\n    アップロードした複数の画像から画像の持ち主の性格を引き出し、重要情報をまとめる\n\
+            \  </task_description>\n\n  <instructions>\n    1. まず、アップロードされた画像を1つずつ確認します。\n\
+            \    2. 各画像から持ち主の表情、服装、周囲の環境などを注意深く観察し、性格を推測します。\n    3. 画像ごとに性格に関連する特徴や情報を抽出し、まとめます。\n\
+            \    4. 重要な情報を整理し、XMLタグを使用せずに出力します。\n  </instructions>\n\n  <examples>\n\
+            \    <example>\n      <input>\n        アップロードされた画像1: 表情は明るく、カジュアルな服装、自然の中で笑顔を浮かべている\n\
+            \      </input>\n      <output>\n        持ち主は明るくて自然を楽しむタイプであることが推測される\n\
+            \      </output>\n    </example>\n    <example>\n      <input>\n     \
+            \   アップロードされた画像2: 眉間にしわが寄り、シックなスーツを着用、オフィスのデスクで真剣な表情\n      </input>\n\
+            \      <output>\n        持ち主は真面目で仕事に真剣に取り組むタイプであることが推測される\n      </output>\n\
+            \    </example>\n    <example>\n      <input>\n        アップロードされた画像3: 大きな笑顔で友人と一緒に写っており、カジュアルな服装、カフェの中でリラックスした雰囲気\n\
+            \      </input>\n      <output>\n        持ち主は社交的でリラックスした雰囲気を好むタイプであることが推測される\n\
+            \      </output>\n    </example>\n  </examples>\n</instruction>\n```"
+        retry_config:
+          max_retries: 3
+          retry_enabled: false
+          retry_interval: 1000
+        selected: false
+        title: LLM
+        type: llm
+        variables: []
+        vision:
+          configs:
+            detail: high
+            variable_selector:
+            - '1734706197729'
+            - images
+          enabled: true
+      height: 161
+      id: '1734706364676'
+      position:
+        x: 334
+        y: 305.5
+      positionAbsolute:
+        x: 334
+        y: 305.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '1734706364676'
+          - error_message
+          variable: error_message
+        selected: false
+        title: 終了
+        type: end
+      height: 89
+      id: '1734706467082'
+      position:
+        x: 638
+        y: 305.5
+      positionAbsolute:
+        x: 638
+        y: 305.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4-turbo
+          provider: openai
+        prompt_template:
+        - id: bff5c9d6-e4fc-4c3a-a1c0-f47351a7657f
+          role: system
+          text: "```xml\n<prompt>\n    <task_description>\n        下記の分をどんな性格の人なのか「バーナム効果」を意識しつつ要約してください。\n\
+            \        250文字程度で要約してください。\n        日本語でお願いします。\n    </task_description>\n\
+            \n    <instructions>\n        1. 与えられた文章を読み、その人物の性格を要約してください。\n      \
+            \  2. バーナム効果を意識しながら、文章の内容から人物の性格を推測して要約してください。\n        3. 要約は250文字以内で行い、XMLタグを含めないようにしてください。\n\
+            \    </instructions>\n```\n{{#1734706364676.text#}}"
+        selected: false
+        title: 性格（バーナム効果
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 97
+      id: '1734707916394'
+      position:
+        x: 638
+        y: 434.5
+      positionAbsolute:
+        x: 638
+        y: 434.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: 変数名｛sex,age,big_five｝json
+        outputs:
+        - value_selector:
+          - '1737171593268'
+          - output
+          variable: '1'
+        selected: false
+        title: 終了 3
+        type: end
+      height: 117
+      id: '1734708633520'
+      position:
+        x: 1854
+        y: 531.5
+      positionAbsolute:
+        x: 1854
+        y: 531.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        author: Dify
+        desc: ''
+        height: 88
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"自分の性格","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"運命の指示","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"相手の指示","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"場所は名古屋市の広報とかで選定","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"Z世代が突き刺さるもの","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"普段いかないところを案内してみる","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 240
+      height: 88
+      id: '1734775023672'
+      position:
+        x: 384.28571428571433
+        y: 989.8996765195068
+      positionAbsolute:
+        x: 384.28571428571433
+        y: 989.8996765195068
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 240
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4o
+          provider: openai
+        prompt_template:
+        - id: 41e90d30-7fd0-4661-9da6-9c8b04c02760
+          role: system
+          text: '{{#1734706364676.text#}}
+
+
+            ```xml
+
+            <instruction>
+
+            <instructions>
+
+            1. Evaluate the input personality based on the "Big Five Theory" by assigning
+            a score from 0 to 100 for each of the five dimensions: Extraversion, Agreeableness,
+            Conscientiousness, Neuroticism, and Openness.
+
+            2. Ensure that the scores accurately reflect the individual''s personality
+            traits according to the theory.
+
+            3. The output should not contain any xml tags.
+
+
+            <example>
+
+            Output:
+
+            Extraversion: 70 /100
+
+            Agreeableness: 85 /100
+
+            Conscientiousness: 60 /100
+
+            Neuroticism: 40 /100
+
+            Openness: 75 /100
+
+
+            '
+        selected: false
+        title: BigFive数値
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 97
+      id: '1735629302010'
+      position:
+        x: 638
+        y: 620.5
+      positionAbsolute:
+        x: 638
+        y: 620.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4o
+          provider: openai
+        prompt_template:
+        - id: e5824743-7822-491f-b68c-f5c8e44e5054
+          role: system
+          text: "```xml\n<prompt>\n    <instructions>\n        与えられたBigFive理論の数値から性格を診断してください。バーナム効果を使用してより数値に納得感を持たせてください。テキストで出力してください。\n\
+            　　1. 与えられた数値を元に、それぞれの性格特性に基づいて個別の特徴を考慮してください。\n        2. バーナム効果を活用し、一般的な特性を具体的かつ肯定的に表現してください。\n\
+            \        3.数値は入力しないでください。\n        4. 出力結果にはXMLタグを含めず、純粋なテキストのみを出力してください。\n\
+            \    </instructions>\n\n    <examples>\n        <example>\n          \
+            \  Extraversion: 75\n            Agreeableness: 80\n            Conscientiousness:\
+            \ 65\n            Neuroticism: 35\n            Openness: 85\n\n      \
+            \      Output:\n            勤勉で献身的なので、自分の周りの人たちに対する強い責任感もあります。誕生日や特別な日などを忘れることはなく、締め切りも守り、愛する人たちに対してのサポートと配慮を行動で示すでしょう。自分の努力や配慮を認めるよう相手に要求することは滅多にせず、人のために陰で色々と動くことを好む人たちです。\n\
+            \        </example>\n        <example>\n            Extraversion: 50\n\
+            \            Agreeableness: 70\n            Conscientiousness: 80\n  \
+            \          Neuroticism: 45\n            Openness: 60\n\n            Output:\n\
+            \            組織的で責任感が強く、計画的に物事を進めることが得意です。他人に対しても思いやりを持ち、協力的で信頼される存在として振る舞います。感情の起伏が少なく、冷静な判断力を持っているため、ストレスに強く、安定感のある人物です。\n\
+            \        </example>\n        <example>\n            Extraversion: 85\n\
+            \            Agreeableness: 60\n            Conscientiousness: 70\n  \
+            \          Neuroticism: 40\n            Openness: 75\n\n            Output:\n\
+            \            社交的で活発な性格であり、新しい経験やアイデアに対してオープンで柔軟な姿勢を持っています。自分の意見をはっきりと述べることができる一方で、他人の意見にも敬意を払い、協力的な態度を示します。自己管理能力が高く、目標を達成するために効果的な計画を立てることが得意です。\n\
+            \        </example>\n    </examples>\n</prompt>\n```"
+        selected: false
+        title: BigFiveから性格（内面）診断
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 97
+      id: '1737166906243'
+      position:
+        x: 942
+        y: 624.5
+      positionAbsolute:
+        x: 942
+        y: 624.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        selected: false
+        template: "\r\n\U0001F496写真からBigFive理論の数値を推測\U0001F496\r\n\r\n{{ text }}\r\
+          \n"
+        title: 3_♡写真からBigFive理論の数値を推測♡
+        type: template-transform
+        variables:
+        - value_selector:
+          - '1735629302010'
+          - text
+          variable: text
+      height: 53
+      id: '1737167326617'
+      position:
+        x: 1246
+        y: 624.5
+      positionAbsolute:
+        x: 1246
+        y: 624.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        selected: false
+        template: "\r\n\U0001F496深層心理\U0001F496\r\n\r\n{{ text }}\r\n\r\n<a href=\"\
+          http://bit.ly/3PCiN3M\">運命のお告げ</a>"
+        title: 4_♡深層心理♡
+        type: template-transform
+        variables:
+        - value_selector:
+          - '1737166906243'
+          - text
+          variable: text
+      height: 53
+      id: '1737167733952'
+      position:
+        x: 1246
+        y: 717.5
+      positionAbsolute:
+        x: 1246
+        y: 717.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        selected: false
+        template: "\r\n\U0001F496写真からの人間性\U0001F496\r\n\r\n{{ text }}"
+        title: 2_♡写真からの人間性♡
+        type: template-transform
+        variables:
+        - value_selector:
+          - '1734707916394'
+          - text
+          variable: text
+      height: 53
+      id: '1737170256041'
+      position:
+        x: 1246
+        y: 531.5
+      positionAbsolute:
+        x: 1246
+        y: 531.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4o
+          provider: openai
+        prompt_template:
+        - id: 89e57380-2848-4162-89c2-22a178083529
+          role: system
+          text: '入力された性格の人を一言で要約してください。
+
+            {{#1734707916394.text#}}'
+        selected: false
+        title: 性格を一言
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 97
+      id: '1737170460531'
+      position:
+        x: 942
+        y: 438.5
+      positionAbsolute:
+        x: 942
+        y: 438.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        selected: false
+        template: "\U0001F496あなたはこんな人！\U0001F496\r\n\r\n{{ text }}"
+        title: 1_♡あなたはこんな人！♡
+        type: template-transform
+        variables:
+        - value_selector:
+          - '1737170460531'
+          - text
+          variable: text
+      height: 53
+      id: '1737170497460'
+      position:
+        x: 1246
+        y: 438.5
+      positionAbsolute:
+        x: 1246
+        y: 438.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        selected: false
+        template: "{{ output }}\r\n{{ output_1 }}\r\n{{ output_2 }}\r\n{{ output_3\
+          \ }}"
+        title: 集約
+        type: template-transform
+        variables:
+        - value_selector:
+          - '1737170497460'
+          - output
+          variable: output
+        - value_selector:
+          - '1737170256041'
+          - output
+          variable: output_1
+        - value_selector:
+          - '1737167326617'
+          - output
+          variable: output_2
+        - value_selector:
+          - '1737167733952'
+          - output
+          variable: output_3
+      height: 53
+      id: '1737171593268'
+      position:
+        x: 1550
+        y: 531.5
+      positionAbsolute:
+        x: 1550
+        y: 531.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4o
+          provider: openai
+        prompt_template:
+        - id: 0de9a40c-3f2c-4075-a47c-2be568f77571
+          role: system
+          text: "```xml\n<instruction>\n    <task_description>\n        {{#1735629302010.text#}}BigFiveの点数をJSON形式にしてください。\n\
+            \            Extraversion: \n            Agreeableness: \n           \
+            \ Conscientiousness: \n            Neuroticism: \n            Openness:\
+            \ \n    </task_description>\n\n    <instructions>\n        1. Take the\
+            \ given BigFive scores provided in the task description.\n        2. Convert\
+            \ these scores into JSON format.\n        3. Ensure that the JSON output\
+            \ does not contain any XML tags.\n    </instructions>\n\n    <examples>\n\
+            \        <example>\n            Input:\n                Extraversion:\
+            \ 60\n                Agreeableness: 70\n                Conscientiousness:\
+            \ 50\n                Neuroticism: 40\n                Openness: 80\n\
+            \            Output:\n                {\n                    \"Extraversion\"\
+            : 60,\n                    \"Agreeableness\": 70,\n                  \
+            \  \"Conscientiousness\": 50,\n                    \"Neuroticism\": 40,\n\
+            \                    \"Openness\": 80\n                }\n        </example>\n\
+            \        \n        <example>\n            Input:\n                Extraversion:\
+            \ 90\n                Agreeableness: 85\n                Conscientiousness:\
+            \ 75\n                Neuroticism: 30\n                Openness: 95\n\
+            \            Output:\n                {\n                    \"Extraversion\"\
+            : 90,\n                    \"Agreeableness\": 85,\n                  \
+            \  \"Conscientiousness\": 75,\n                    \"Neuroticism\": 30,\n\
+            \                    \"Openness\": 95\n                }\n        </example>\n\
+            \        \n        <example>\n            Input:\n                Extraversion:\
+            \ 70\n                Agreeableness: 75\n                Conscientiousness:\
+            \ 60\n                Neuroticism: 45\n                Openness: 85\n\
+            \            Output:\n                {\n                    \"Extraversion\"\
+            : 70,\n                    \"Agreeableness\": 75,\n                  \
+            \  \"Conscientiousness\": 60,\n                    \"Neuroticism\": 45,\n\
+            \                    \"Openness\": 85\n                }\n        </example>\n\
+            \    </examples>\n</instruction>\n```"
+        selected: false
+        title: JSON形式
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 97
+      id: '1737179058484'
+      position:
+        x: 1246
+        y: 810.5
+      positionAbsolute:
+        x: 1246
+        y: 810.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        selected: false
+        template: "import matplotlib.pyplot as plt\r\nimport numpy as np\r\nimport\
+          \ json\r\n\r\n# JSONテキスト形式のデータ\r\njson_text = {{ text }}\r\n\r\n# JSON部分を抽出（```jsonと```を除去）\r\
+          \njson_data = json_text.strip(\"```json\").strip(\"```\").strip()\r\n\r\n\
+          # JSONデータを辞書形式に変換\r\ndata = json.loads(json_data)\r\n\r\n# 項目名と値を抽出\r\n\
+          labels = list(data.keys())\r\nvalues = list(data.values())\r\n\r\n# レーダーチャート用のデータ準備\r\
+          \nvalues += values[:1]  # 最初の値を最後にも追加してループを閉じる\r\nangles = np.linspace(0,\
+          \ 2 * np.pi, len(labels) + 1, endpoint=True)\r\n\r\n# 描画設定\r\nfig, ax =\
+          \ plt.subplots(figsize=(6, 6), subplot_kw=dict(polar=True))\r\n\r\n# データプロット\r\
+          \nax.plot(angles, values, label=\"Big Five Traits\", color=\"b\", linewidth=2)\r\
+          \nax.fill(angles, values, color=\"b\", alpha=0.25)\r\n\r\n# 軸ラベル設定\r\nax.set_yticks([20,\
+          \ 40, 60, 80, 100])\r\nax.set_yticklabels(['20', '40', '60', '80', '100'],\
+          \ color=\"gray\")\r\nax.set_xticks(angles[:-1])\r\nax.set_xticklabels(labels,\
+          \ fontsize=12)\r\n\r\n# グリッド線のスタイル調整\r\nax.grid(color=\"gray\", linestyle=\"\
+          --\", linewidth=0.5, alpha=0.7)\r\n\r\n# グラフタイトル\r\nplt.title(\"Big Five\
+          \ Personality Traits\", fontsize=16, pad=20)\r\n\r\n# プロット表示\r\nplt.legend(loc=\"\
+          upper right\", bbox_to_anchor=(1.3, 1.1))\r\nplt.show()"
+        title: テンプレート 6
+        type: template-transform
+        variables:
+        - value_selector:
+          - '1737179058484'
+          - text
+          variable: text
+      height: 53
+      id: '1737180089317'
+      position:
+        x: 1550
+        y: 832.5
+      positionAbsolute:
+        x: 1550
+        y: 832.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: 42.88495800999203
+      y: 27.59647251013422
+      zoom: 0.526374009104255
