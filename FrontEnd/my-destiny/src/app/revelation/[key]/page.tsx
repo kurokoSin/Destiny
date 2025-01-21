@@ -18,7 +18,10 @@ export default async function Page({ params }: { params: Promise<{key: string}> 
         <div className="">
             <div className="">{rev?.date} ({day_week}) {rev?.time_begin} 〜 {rev?.time_end}</div>
             <div className="notification">{rev?.heading}</div>
+            <div className="mt-1 text-bold">男性：</div>
             <div className="notification">{rev?.pat01}</div>
+            <div className="mt-3 text-bold">女性：</div>
+            <div className="notification">{rev?.pat02}</div>
         </div>
         <MyLink href={`/dashboard`} caption="戻る" target="_self" />
       </main>
